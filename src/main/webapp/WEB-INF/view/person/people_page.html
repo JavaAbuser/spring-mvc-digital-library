@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All people</title>
+    <link rel="stylesheet" th:href="@{/css/person.css}" media="screen"/>
+</head>
+<body>
+    <div class="container-1">
+        <header>
+            <h3>List of people in our Library</h3>
+        </header>
+        <th:block th:each="person : ${people}">
+            <a th:href="@{/people/{id}(id = ${person.getId()})}" th:text="${person.getFullName() + ', ' + person.getYearOfBirth()}" class="a-person"></a>
+            <br>
+        </th:block>
+        <br>
+        <form th:method="GET" th:action="@{/people/new}">
+            <input type="submit" value="Create new person" class="button-create"/>
+        </form>
+    </div>
+</body>
+</html>

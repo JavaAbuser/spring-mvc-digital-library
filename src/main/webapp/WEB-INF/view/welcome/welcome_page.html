@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Digital Library</title>
+    <link rel="stylesheet" th:href="@{/css/welcome.css}" media="screen"/>
+</head>
+<body>
+    <div class="container-1">
+    <header>
+        <h2>Welcome to digital library</h2>
+    </header>
+    <br>
+        <form th:method="GET" th:action="@{/people}" class="form">
+            <input type="submit" value="People" class="button"/>
+        </form>
+        <br>
+        <form th:method="GET" th:action="@{books}">
+            <input type="submit" value="Books" class="button"/>
+        </form>
+    </div>
+</body>
+</html>
