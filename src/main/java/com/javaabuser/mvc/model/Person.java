@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Person {
     private int id;
-    @NotBlank(message = "Full name should be not empty")
+    @NotBlank(message = "Full name should be not blank")
     @NotEmpty(message = "Full name should be not empty")
     @Size(min = 2, max = 30, message = "Full name should be between 2 and 30 characters")
     private String fullName;

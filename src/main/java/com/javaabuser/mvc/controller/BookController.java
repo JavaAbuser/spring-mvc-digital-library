@@ -33,6 +33,7 @@ public class BookController {
         System.out.println(bookDAO.getBook(id).getId());
         model.addAttribute("bookOwner", bookDAO.getBookOwner(id));
         model.addAttribute("people", personDAO.getPeople());
+        System.out.println(book.getPerson());
         return "book/book_page";
     }
 
