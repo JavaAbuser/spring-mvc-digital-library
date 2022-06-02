@@ -2,6 +2,7 @@ package com.javaabuser.mvc.controller;
 
 import com.javaabuser.mvc.DAO.PersonDAO;
 import com.javaabuser.mvc.model.Person;
+import com.javaabuser.mvc.util.PersonValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,10 +15,12 @@ import javax.validation.Valid;
 @RequestMapping("/people")
 public class PersonController {
     private final PersonDAO personDAO;
+    private final PersonValidator personValidator;
 
     @Autowired
-    public PersonController(PersonDAO personDAO) {
+    public PersonController(PersonDAO personDAO, PersonValidator personValidator) {
         this.personDAO = personDAO;
+        this.personValidator = personValidator;
     }
 
     @GetMapping()
@@ -42,6 +45,7 @@ public class PersonController {
 
     @PostMapping()
     public String createNewPerson(@ModelAttribute("person") @Valid Person person, BindingResult bindingResult){
+        personValidator.validate(person, bindingResult);
         if(bindingResult.hasErrors()){
             return "person/person_new_page";
         }
@@ -57,6 +61,7 @@ public class PersonController {
 
     @PatchMapping("/{id}")
     public String updatePerson(@PathVariable("id") int id, @ModelAttribute("person") @Valid Person person, BindingResult bindingResult, Model model){
+        personValidator.validate(person, bindingResult);
         if(bindingResult.hasErrors()){
             return "person/person_edit_page";
         }

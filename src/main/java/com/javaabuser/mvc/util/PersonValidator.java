@@ -3,9 +3,11 @@ package com.javaabuser.mvc.util;
 import com.javaabuser.mvc.DAO.PersonDAO;
 import com.javaabuser.mvc.model.Person;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
+@Component
 public class PersonValidator implements Validator {
     private final  PersonDAO personDAO;
 
