@@ -20,22 +20,24 @@
             </select>
             <input type="submit" value="select" class="button-select"/>
         </form>
-        <br>
-    <form th:if="${book.getPerson()}" th:method="PATCH" th:action="@{/books/{id}/release/(id = ${book.getId()})}">
-        <p th:text="${bookOwner.getFullName() + ' has the book now'}"></p>
-        <input type="submit" value="Release the book" class="button-select"/>
-    </form>
-    <form th:method="GET" th:action="@{/books/{id}/edit(id=${book.getId()})}">
-        <input type="submit" value="Edit" class="button"/>
-    </form>
-    <form th:method="DELETE" th:action="@{/books/{id}/delete(id = ${book.getId()})}">
-        <input type="submit" value="Delete" class="button"/>
-    </form>
-    <br>
-        <form th:method="GET" th:action="@{/books}">
-            <input type="submit" value="Back to books" class="button-create"/>
-        </form>
     </div>
+    <th:block th:if="${bookOwner}" >
+            <p th:text="${bookOwner.getFullName() + ' has the book now'}"></p>
+            <form th:method="PATCH" th:action="@{/books/{id}/release/(id = ${book.getId()})}">
+
+                <input type="submit" value="Release the book" class="button"/>
+             </form>
+            <form th:method="GET" th:action="@{/books/{id}/edit(id=${book.getId()})}">
+                <input type="submit" value="Edit" class="button"/>
+            </form>
+            <form th:method="DELETE" th:action="@{/books/{id}/delete(id = ${book.getId()})}">
+                <input type="submit" value="Delete" class="button"/>
+            </form>
+            <br>
+            <form th:method="GET" th:action="@{/books}">
+                <input type="submit" value="Back to books" class="button-create"/>
+            </form>
+    </th:block>
 </div>
 </body>
 </html>
