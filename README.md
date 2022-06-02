@@ -29,6 +29,7 @@ And of course Digital Library itself is open source with a public repository
  ![image](https://user-images.githubusercontent.com/43775453/171418102-4d5d2a85-80b7-4fd7-9346-9e308923d8d2.png)
  ![image](https://user-images.githubusercontent.com/43775453/171418289-85a8e4ee-688d-4316-a500-11ef93fdf709.png)
  ![image](https://user-images.githubusercontent.com/43775453/171420764-35a21386-e881-4e38-8945-3b01d259fd4e.png)
+ ![image](https://user-images.githubusercontent.com/43775453/171530731-728b7324-0fe2-49d8-94af-dc986a6dce07.png)
  ![image](https://user-images.githubusercontent.com/43775453/171530424-7efd7a3c-1ef7-49eb-ab83-666bfbc365e8.png)
 
 
