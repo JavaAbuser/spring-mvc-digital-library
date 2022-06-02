@@ -49,4 +49,9 @@ public class PersonDAO {
         person.setBooks(books);
         return books;
     }
+
+    public Person getByName(String fullName){
+        return jdbcTemplate.query("SELECT * FROM Person WHERE fullName = ?", new Object[]{fullName}, new PersonMapper())
+                .stream().findAny().orElse(null);
+    }
 }
