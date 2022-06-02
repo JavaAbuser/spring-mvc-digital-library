@@ -30,7 +30,6 @@ public class BookController {
     @GetMapping("/{id}")
     public String getBook(@PathVariable("id") int id, @ModelAttribute("book") Book book, Model model){
         model.addAttribute("book", bookDAO.getBook(id));
-        System.out.println(bookDAO.getBook(id).getId());
         model.addAttribute("bookOwner", bookDAO.getBookOwner(id));
         model.addAttribute("people", personDAO.getPeople());
         return "book/book_page";
