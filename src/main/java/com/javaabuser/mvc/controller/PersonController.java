@@ -34,6 +34,8 @@ public class PersonController {
         model.addAttribute("person", personDAO.getPerson(id));
         model.addAttribute("receivedBook", personDAO.getReceivedBook(personDAO.getPerson(id)));
         System.out.println(id);
+        System.out.println(personDAO.getReceivedBook(personDAO.getPerson(id)));
+        System.out.println(personDAO.getPerson(id));
         return "person/person_page";
     }
 
