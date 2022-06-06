@@ -1,30 +1,41 @@
 package com.javaabuser.mvc.model;
 
+import javax.persistence.*;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
+@Entity
+@Table(name = "Book")
 public class Book {
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @NotBlank(message = "Name should be not blank")
+
+    @Column(name = "name")
     @NotEmpty(message = "Name should be not empty")
     @Size(min = 2, max = 30, message = "Name should be between 2 and 30 characters")
     private String name;
-    @NotBlank(message = "Author should be not blank")
+
+    @Column(name = "author")
     @NotEmpty(message = "Author should be not empty")
     @Size(min = 2, max = 30, message = "Author should be between 2 and 30 characters")
     private String author;
+
+    @Column(name = "year")
     @Min(value = 0, message = "Year should be greater than 0")
     private int year;
 
-    private int person_id;
+    @ManyToOne
+    @JoinColumn(name = "person_id", referencedColumnName = "id")
+    private Person person;
 
     public Book() {
     }
 
-    public void addPerson(int person_id){
-        this.person_id = person_id;
+    public void addPerson(Person person){
+        this.person = person;
     }
 
     public String getName() {
@@ -55,12 +66,12 @@ public class Book {
         return id;
     }
 
-    public int getPerson() {
-        return person_id;
+    public Person getPerson() {
+        return this.person;
     }
 
-    public void setPerson(int person) {
-        this.person_id = person;
+    public void setPerson(Person person) {
+        this.person = person;
     }
 
     public void setId(int id) {

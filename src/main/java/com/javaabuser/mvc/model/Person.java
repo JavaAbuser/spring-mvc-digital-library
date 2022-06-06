@@ -1,22 +1,32 @@
 package com.javaabuser.mvc.model;
 
+import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
-import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table(name = "Person")
 public class Person {
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(name = "fullName")
     @NotBlank(message = "Full name should be not blank")
     @NotEmpty(message = "Full name should be not empty")
     @Size(min = 2, max = 30, message = "Full name should be between 2 and 30 characters")
     private String fullName;
+
+    @Column(name = "yearOfBirth")
     @Min(value = 0, message = "Year of birth should be greater than 0")
     private int yearOfBirth;
 
-    private List<Book> books = new ArrayList<>();
+    @OneToMany(mappedBy = "person")
+    private List<Book> books;
 
     public Person() {
     }
