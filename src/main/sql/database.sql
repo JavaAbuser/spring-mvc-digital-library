@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS Person(
 
 CREATE TABLE IF NOT EXISTS Book(
                                    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-                                   person_id INT REFERENCES Person(id),
+                                   person_id INT,
                                    name VARCHAR(100) UNIQUE NOT NULL,
                                    author VARCHAR(50) NOT NULL,
                                    year INT NOT NULL CHECK (year > 0),
