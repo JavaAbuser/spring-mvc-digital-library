@@ -1,9 +1,10 @@
-package com.javaabuser.mvc.model;
+package com.javaabuser.mvc.models;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.util.Date;
 
 @Entity
 @Table(name = "Book")
@@ -30,6 +31,13 @@ public class Book {
     @ManyToOne
     @JoinColumn(name = "person_id", referencedColumnName = "id")
     private Person person;
+
+    @Column(name = "takenAt")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date takenAt;
+
+    @Transient
+    private boolean expired;
 
     public Book() {
     }
@@ -76,6 +84,22 @@ public class Book {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public Date getTakenAt() {
+        return takenAt;
+    }
+
+    public boolean isExpired() {
+        return expired;
+    }
+
+    public void setExpired(boolean expired) {
+        this.expired = expired;
+    }
+
+    public void setTakenAt(Date takenAt) {
+        this.takenAt = takenAt;
     }
 
     @Override
