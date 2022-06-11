@@ -1,4 +1,4 @@
-package com.javaabuser.mvc.controller;
+package com.javaabuser.mvc.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class WelcomeController {
     @GetMapping()
     public String welcome(){
-        return "welcome/welcome_page";
+        return "/welcome/index";
     }
 }
