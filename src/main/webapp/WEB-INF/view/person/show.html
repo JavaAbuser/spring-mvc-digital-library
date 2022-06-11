@@ -13,7 +13,7 @@
     <p th:if="${#lists.isEmpty(receivedBook)}">The person has no books</p>
     <th:block th:if="${!#lists.isEmpty(receivedBook)}">
         <th:block th:each="book : ${receivedBook}">
-            <p th:text="${book.getName() + ', ' + book.getAuthor() + ', ' + book.getYear()}"></p>
+            <p th:text="${book.getName() + ', ' + book.getAuthor() + ', ' + book.getYear()}" th:style="${book.isExpired()} ? 'color:red' : 'color:black'"></p>
         </th:block>
     </th:block>
     <form th:method="GET" th:action="@{/people/{id}/edit(id=${person.getId()})}" th:object="${person}">
