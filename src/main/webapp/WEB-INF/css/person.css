@@ -74,3 +74,8 @@ p {
     font-size: 15px;
 }
 
+.input_error {
+    color: red;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
