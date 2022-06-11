@@ -8,6 +8,8 @@
 <body>
 <div class="container-1">
     <form th:method="PATCH" th:action="@{/books/{id}(id = ${book.getId()})}" th:object="${book}">
+        <label for="bookId" th:type="hidden"></label>
+        <input type="text" th:object="${book}" th:field="*{id}" th:type="hidden" id="bookId"/>
         <label for="name" class="book-label">Enter new book's name: </label>
         <input type="text" id="name" th:field="*{name}" class="input"/>
         <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="input_error">Name error</div>
