@@ -1,4 +1,4 @@
-package com.javaabuser.mvc.model;
+package com.javaabuser.mvc.models;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
